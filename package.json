@@ -1,0 +1,33 @@
+{
+  "name": "cim_tc",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^16.4.5",
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "express-session": "^1.18.0",
+    "fs": "^0.0.1-security",
+    "jquery": "^3.7.1",
+    "jsdom": "^24.1.1",
+    "location-href": "^1.0.0",
+    "mqtt": "^5.10.0",
+    "mysql": "^2.18.1",
+    "node-fetch": "^3.3.2",
+    "python-shell": "^5.0.0",
+    "set-interval": "^2.1.3",
+    "socket.io": "^4.7.5"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.4"
+  }
+}

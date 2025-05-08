@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilo.css">
+    <title>Inicio</title>
+</head>
+<body>
+    <script type="text/javascript" src="sweetAlert2.all.min.js"></script>
+    <% if (typeof alert != "undefined"){%>
+        <script>
+            Swal.fire({
+                title: '<%= alertTitle %>',
+                text: '<%= alertMessage %>',
+                icon: '<%= alertIcon %>',
+                timer: '<%= timer %>'
+            }).then(()=>{
+                window.location = '/<%= ruta %>'
+            })
+        </script>
+    <% } %> 
+    <div class="container-t">
+        <h1 class="page-title">Sistema de almacenaje de doble cara </h1>
+    </div>
+    <div class="container">
+            <img src="RMA.png" class="img">
+            <form action="verificacion" method="POST">
+                <input type="submit" class="center-button" value="Inicio">
+            </form>
+            <form action="tabla" method="POST">
+                <input type="submit" class="center-button" value="Almacén">
+            </form>
+            <% if(final){%>
+            <form action="calidad" method="POST">
+                <input type="submit" class="ver-button" value="Disponible verificación">
+            </form>
+            <% } %>
+        <div class="text-container">
+            <h2>Resultados de trabajo</h2>
+            
+                <a href="/resultados">
+                    <p>•Resultados</p>
+                </a>
+        </div>
+   
+    </div>
+
+</body>
+</html>
