@@ -73,26 +73,45 @@ conexion.connect((error) => {
 
 app.get('/index',(req,res)=>{
     
-    /*
+    
+    async function sendData() {
+    try {
+        const response = await fetch('http://172.20.208.75:80', {
+            method: 'POST',
+            body: JSON.stringify({
+                code: "request",
+                cid: 4,
+                adr: "/iolinkmaster/port[6]/iolinkdevice/pdout/setdata",
+                data: { newvalue: "01" }
+            }),
+            headers: { 'Content-Type': 'application/json' }
+        });
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const data = await response.json();
+        console.log("Respuesta recibida:", data);
+    } catch (e) {
+        console.error("Error al conectar con el master:");
+    }
+}
+
+sendData();
+/*
     try{
-        const response = fetch('http://172.20.208.75:80',{
-            method: 'post',
-            body: JSON.stringify({"code": "request", "cid": 4, "adr": "/iolinkmaster/port[6]/iolinkdevice/pdout/setdata", "data": {"newvalue": "01"}}),
-            headers: {'Content-Type': 'application/json'}
-        }); 
-        try{
             const response2 = fetch('http://172.20.208.76:80',{
                 method: 'post',
                 body: JSON.stringify({"code": "request", "cid": 4, "adr": "/iolinkmaster/port[2]/iolinkdevice/pdout/setdata", "data": {"newvalue": "01"}}),
                 headers: {'Content-Type': 'application/json'}
             }); 
-        }catch{
-
+        }catch(e){
+            console.error(e)
+            console.log("Error al conectar con el master")
         }
-    }catch{
-
-    }
-    */    //--------------------------prender balizas en amarillo comentadas por pruebas---------------
+            */
+        //--------------------------prender balizas en amarillo comentadas por pruebas---------------
     lista_filtrada=null
     conexion.query('SELECT estado FROM maquinas',(error, results)=>{
         try{
